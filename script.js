@@ -3,56 +3,62 @@ const images = document.querySelectorAll("#images img");
 const prev = document.querySelector('#prev');
 const next = document.querySelector('#next');
 const imageContainer = document.getElementById("images")
+const radio1 = document.getElementById('radio1');
+const radio2 = document.getElementById('radio2');
+const radio3 = document.getElementById('radio3');
+let i = 0;
 
-let index = 0;
-function slideshow(){
-    index++;
-    changeImage()
-}
-
+//create a function
 function changeImage(){
-    if (index > images.length -1){
-        index = 0;
-    }else if (index < 0){
-        index = images.length -1;
+    if (i > images.length -1){
+        i = 0;
+    }else if (i < 0){
+        i = images.length -1;
     }
-    imageContainer.style.transform = `translateX(${-index * 500}px)`;
+    imageContainer.style.transform = `translateX(${-i * 500}px)`;
+    changeRadioButton();
 }
 
+//add function to the next button
 next.addEventListener("click", () => {
-    console.log("asdas")
-    index++;
+    i++;
     changeImage();
 })
 
+//add function to the previous button
 prev.addEventListener("click", () => {
-    console.log("asdas")
-    index--;
+    i--;
     changeImage();
 })
 
+radio1.addEventListener("change", () => {
+    i = 0;
+    changeImage()
+})
 
+radio2.addEventListener("change", () => {
+    i = 1;
+    changeImage()
+})
 
+radio3.addEventListener("change", () => {
+    i = 2;
+    changeImage()
+})
 
-
-
-// images[counter].classList.add('active');
-
-
-// prev.addEventListener('click', () => {
-//     images[counter].classList.remove('active');
-//     counter--;
-//     if(counter < 0){
-//         counter = images.length - 1;
-//     }
-//     images[counter].classList.add('active');
-// });
-
-// next.addEventListener('click', () => {
-//     images[counter].classList.remove('active');
-//     counter++;
-//     if(counter >= images.length){
-//         counter = 0;
-//     }
-//     images[counter].classList.add('active');
-// });
+function changeRadioButton() {
+    if (i === 0) {
+        
+      radio1.checked = true;
+      radio2.checked = false;
+      radio3.checked = false;
+    } else if (i === 1) {
+      radio1.checked = false;
+      radio2.checked = true;
+      radio3.checked = false;
+    } else if (i === 2) {
+      radio1.checked = false;
+      radio2.checked = false;
+      radio3.checked = true;
+    }
+  }
