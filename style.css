@@ -17,40 +17,64 @@ img{
     height: 500px;
     width: 500px;
     object-fit: cover;
+    
 }
 
 .image-container{
-    transform: translateX(0);
     display: flex;
 }
-.carousel{
+.carousel {
+    display: flex;
     height: 580px;
     width: 500px;
     overflow: hidden;
+    align-items: center;
 }
 
 .btncontainer {
-    display: flex;
-    margin-top: 5px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  width: 500px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
 
+#prev {
+  margin-right: auto;
+  margin-left: 10px;
+}
+
+#next {
+    margin-right: 10px;
+  }
+.radiobtns {
+    position: absolute;
+    bottom: -197px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+
 .btn {
-    margin-bottom: 10px;
-    width: 48%;
-    text-transform: uppercase;
+    
     font-size: 16px;
-    padding: 5px;
-    background: rgb(208, 165, 236);
+    color: rgba(7, 7, 7, 0.329);
+    padding: 20px;
+    background-color:rgba(255, 255, 255, 0.623);
     border: none;
+    border-radius: 40%;
     font-weight: 600;
 }
 
-.carousel img.active {
-    opacity: 1;
-}
-
-.carousel img.active {
-    opacity: 0;
-}
+input[type="radio"] {
+    background-color: lightgray;
+    border: 2px solid black;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    border-radius: 50%;
+    display: inline-block;
+  }
